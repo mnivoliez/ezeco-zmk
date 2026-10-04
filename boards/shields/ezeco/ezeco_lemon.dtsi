@@ -1,0 +1,60 @@
+/*
+ * Keyboard half on Lemon wireless v0.4 with standard Cosmos wiring:
+ * rows on GPIO, columns through a 74HC595 on SPI1 (CS P0.04).
+ * Taken from the Cosmos ZMK generator.
+ */
+
+#include "ezeco.dtsi"
+
+&spi1 {
+    status = "okay";
+    cs-gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
+
+    shifter: 595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        spi-max-frequency = <200000>;
+        reg = <0>;
+        ngpios = <8>;
+        #gpio-cells = <2>;
+    };
+};
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+        col-gpios
+            = <&shifter 0 GPIO_ACTIVE_HIGH>
+            , <&shifter 1 GPIO_ACTIVE_HIGH>
+            , <&shifter 2 GPIO_ACTIVE_HIGH>
+            , <&shifter 3 GPIO_ACTIVE_HIGH>
+            , <&shifter 4 GPIO_ACTIVE_HIGH>
+            , <&shifter 5 GPIO_ACTIVE_HIGH>
+            , <&shifter 6 GPIO_ACTIVE_HIGH>
+            ;
+    };
+};
+
+// No underglow: hold the LED power pin so LED power stays off (CONFIG_ZMK_EXT_POWER=n).
+&gpio0 {
+    ext_power_hog: ext_power_hog {
+        gpio-hog;
+        gpios = <2 GPIO_ACTIVE_LOW>;
+        output-high;
+    };
+};

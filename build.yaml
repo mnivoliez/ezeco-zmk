@@ -1,0 +1,19 @@
+---
+include:
+  # Prospector dongle (central). Pair peripherals in this order: left, right, mouse.
+  - board: seeeduino_xiao_ble
+    shield: ezeco_dongle prospector_adapter
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+
+  # Keyboard halves (peripherals).
+  - board: cosmos_lemon_wireless_v4
+    shield: ezeco_left
+  - board: cosmos_lemon_wireless_v4
+    shield: ezeco_right
+  - board: cosmos_lemon_wireless_v4
+    shield: settings_reset
+
+  # Mouse (peripheral). Same board as the dongle, so the dongle settings_reset image also works here.
+  - board: seeeduino_xiao_ble
+    shield: ezeco_mouse

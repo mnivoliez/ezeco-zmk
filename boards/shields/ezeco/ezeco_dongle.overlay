@@ -1,0 +1,33 @@
+#include "ezeco.dtsi"
+
+&trackball_split {
+    status = "okay";
+};
+
+&mouse_split {
+    status = "okay";
+};
+
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+    };
+
+    // The dongle has no keys of its own.
+    mock_kscan: kscan_mock {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball_split>;
+    };
+
+    mouse_listener {
+        compatible = "zmk,input-listener";
+        device = <&mouse_split>;
+    };
+};

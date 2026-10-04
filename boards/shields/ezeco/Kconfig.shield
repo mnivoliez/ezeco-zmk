@@ -1,0 +1,11 @@
+config SHIELD_EZECO_DONGLE
+    def_bool $(shields_list_contains,ezeco_dongle)
+
+config SHIELD_EZECO_LEFT
+    def_bool $(shields_list_contains,ezeco_left)
+
+config SHIELD_EZECO_RIGHT
+    def_bool $(shields_list_contains,ezeco_right)
+
+config SHIELD_EZECO_MOUSE
+    def_bool $(shields_list_contains,ezeco_mouse)

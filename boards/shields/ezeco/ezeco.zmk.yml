@@ -1,0 +1,15 @@
+file_format: "1"
+id: ezeco
+name: ezeco
+type: shield
+url: https://forgejo.deep-nope.me/mnivoliez/ezeco-zmk
+requires: []
+features:
+  - keys
+  - pointing
+  - encoder
+siblings:
+  - ezeco_dongle
+  - ezeco_left
+  - ezeco_right
+  - ezeco_mouse

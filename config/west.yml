@@ -1,0 +1,23 @@
+manifest:
+  remotes:
+    - name: rianadon
+      url-base: https://github.com/rianadon
+    - name: carrefinho
+      url-base: https://github.com/carrefinho
+    - name: badjeff
+      url-base: https://github.com/badjeff
+  projects:
+    # Cosmos fork of ZMK: upstream main (May 2025, Zephyr 3.5) + Lemon wireless boards.
+    - name: zmk
+      remote: rianadon
+      revision: main
+      import: app/west.yml
+    # Prospector dongle display. `main` targets ZMK v0.3 / Zephyr 3.5.
+    - name: prospector-zmk-module
+      remote: carrefinho
+      revision: main
+    - name: zmk-paw3395-driver
+      remote: badjeff
+      revision: main
+  self:
+    path: config
