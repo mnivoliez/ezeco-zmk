@@ -12,8 +12,8 @@ ZMK firmware for the ezeco setup: a Prospector dongle (central) with three wirel
 Baseline: `rianadon/zmk` `main` (ZMK main of May 2025 on Zephyr 3.5, plus Lemon wireless boards),
 `carrefinho/prospector-zmk-module` `main`, `badjeff/zmk-paw3395-driver` `main`.
 
-The keymap (`config/ezeco.keymap`) lives on the dongle and covers all 51 positions:
-43 keyboard keys and 8 mouse buttons.
+The keymap (`config/ezeco.keymap`) lives on the dongle and covers all 52 positions:
+44 keyboard keys and 8 mouse buttons.
 
 ## First pairing
 
@@ -23,7 +23,8 @@ Prospector battery widget shows them left to right: left, right, mouse.
 ## Provisional parts
 
 - `default_transform` in `boards/shields/ezeco/ezeco.dtsi`: the keyboard RC() positions must be
-  replaced with the ones from the Cosmos ZMK export of the final model.
+  replaced with the ones from the Cosmos ZMK export, generated with the Cosmos Program tab
+  (peaMK) once the keyboard is wired.
 - PAW3395 motion pin on the right half (`ezeco_right.overlay`): VIK AD_2 (P0.31), to confirm
   against the adapter.
 - Mouse pins (`ezeco_mouse.overlay`) until the mouse electronics are bench tested.

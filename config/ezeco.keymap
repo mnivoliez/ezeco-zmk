@@ -1,11 +1,13 @@
 /*
  * ezeco keymap, ported from ezboard (Colemak-DH). Lives on the dongle.
  *
- * Key order (51 positions, matches default_transform in ezeco.dtsi):
+ * Key order (52 positions, matches default_transform in ezeco.dtsi):
  *   3 finger rows       left pinky..inner (5)   right inner..pinky (5)
- *   extra bottom keys   left middle, index (2)  right index, middle (2)
- *   thumbs              left outer..inner (5)   right inner..outer (4)
+ *   extra bottom keys   left ring, middle (2)   right middle, ring (2)
+ *   thumbs              left outer..inner (5)   right inner..outer (5)
  *   mouse               L, R, M, back, forward, DPI, tilt left, tilt right (8)
+ *
+ * The right outer thumb, next to the trackball, is left click on every layer.
  *
  * Layer switching keeps the ezboard style (&to). Left inner thumb and right inner
  * thumb are the layer keys on every layer.
@@ -46,7 +48,7 @@
 &kp A  &kp R  &kp S  &kp T  &kp G        &kp M  &kp N  &kp E      &kp I    &kp O
 &kp Z  &kp X  &kp C  &kp D  &kp V        &kp K  &kp H  &kp COMMA  &kp DOT  &kp FSLH
               &kp LWIN  &kp ESC          &kp SQT  &kp DEL
-&kp TAB  &kp LCTRL  &kp LSHIFT  &kp SPACE  &to NAV        &to SYM  &kp RET  &kp BSPC  &kp RALT
+&kp TAB  &kp LCTRL  &kp LSHIFT  &kp SPACE  &to NAV        &to SYM  &kp RET  &kp BSPC  &kp RALT  &mkp LCLK
 MOUSE
             >;
             sensor-bindings = <&scroll_wheel>;
@@ -59,7 +61,7 @@ MOUSE
 &kp BSLH  &kp PIPE  &kp LBRC  &kp LPAR  &kp LBKT     &kp ASTRK  &kp N4  &kp N5  &kp N6  &kp MINUS
 &kp CARET &kp AMPS  &kp RBRC  &kp RPAR  &kp RBKT     &kp N0     &kp N1  &kp N2  &kp N3  &kp FSLH
                     &kp LWIN  &kp ESC                &kp UNDER  &kp DEL
-&kp TAB  &kp LCTRL  &kp LSHIFT  &kp SPACE  &to BASE       &to FUN  &kp RET  &kp BSPC  &none
+&kp TAB  &kp LCTRL  &kp LSHIFT  &kp SPACE  &to BASE       &to FUN  &kp RET  &kp BSPC  &none  &mkp LCLK
 MOUSE
             >;
             sensor-bindings = <&scroll_wheel>;
@@ -72,7 +74,7 @@ MOUSE
 &none  &none  &none  &none  &none        &none  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
 &none  &none  &none  &none  &none        &none  &none     &none      &none      &none
               &kp LWIN  &none            &none  &none
-&none  &none  &none  &none  &to BASE        &to SYM  &kp RET  &none  &none
+&none  &none  &none  &none  &to BASE        &to SYM  &kp RET  &none  &none  &mkp LCLK
 MOUSE
             >;
             sensor-bindings = <&scroll_wheel>;
@@ -85,7 +87,7 @@ MOUSE
 &kp F5  &kp F6   &kp F7   &kp F8   &none     &kp C_MUTE  &kp C_VOL_DN   &kp C_VOL_UP   &none      &none
 &kp F9  &kp F10  &kp F11  &kp F12  &none     &none       &none          &none          &none      &none
                  &bt BT_CLR  &bt BT_NXT      &bt BT_PRV  &sys_reset
-&none  &none  &kp LCTRL  &none  &to BASE        &to GAME  &none  &kp RALT  &none
+&none  &none  &kp LCTRL  &none  &to BASE        &to GAME  &none  &kp RALT  &none  &mkp LCLK
 MOUSE
             >;
             sensor-bindings = <&scroll_wheel>;
@@ -98,7 +100,7 @@ MOUSE
 &kp LSHIFT  &kp A  &kp S  &kp D  &kp F      &kp H  &kp J  &kp K      &kp L    &kp SEMI
 &kp LCTRL   &kp Z  &kp X  &kp C  &kp V      &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH
                    &kp ESC  &none           &kp RCTRL  &none
-&none  &none  &kp LALT  &kp SPACE  &mo GNUM        &to BASE  &none  &none  &none
+&none  &none  &kp LALT  &kp SPACE  &mo GNUM        &to BASE  &none  &none  &none  &mkp LCLK
 MOUSE
             >;
             sensor-bindings = <&scroll_wheel>;
@@ -111,7 +113,7 @@ MOUSE
 &none  &kp N4  &kp N5  &kp N6  &none      &none  &none  &none  &none  &none
 &none  &kp N7  &kp N8  &kp N9  &kp N0     &none  &none  &none  &none  &none
                &none   &none              &none  &none
-&none  &none  &none  &none  &none        &none  &none  &none  &none
+&none  &none  &none  &none  &none        &none  &none  &none  &none  &mkp LCLK
 MOUSE
             >;
             sensor-bindings = <&scroll_wheel>;
