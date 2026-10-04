@@ -20,14 +20,12 @@
         rows = <0>;
         events = <0>;
     };
+};
 
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball_split>;
-    };
+&trackball_listener {
+    status = "okay";
+};
 
-    mouse_listener {
-        compatible = "zmk,input-listener";
-        device = <&mouse_split>;
-    };
+&mouse_listener {
+    status = "okay";
 };
