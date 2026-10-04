@@ -2,6 +2,10 @@
  * Keyboard half on Lemon wireless v0.4 with standard Cosmos wiring:
  * rows on GPIO, columns through a 74HC595 on SPI1 (CS P0.04).
  * Taken from the Cosmos ZMK generator.
+ *
+ * Pumpkin Patch PCBs are wired ROW2COL. The 595 can only drive outputs, so kscan keeps
+ * diode-direction = "col2row" with active-low rows (pull-up) and active-low columns,
+ * as in peaMK's peamk_r2c.dtsi.
  */
 
 #include "ezeco.dtsi"
@@ -30,22 +34,22 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         row-gpios
-            = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
         col-gpios
-            = <&shifter 0 GPIO_ACTIVE_HIGH>
-            , <&shifter 1 GPIO_ACTIVE_HIGH>
-            , <&shifter 2 GPIO_ACTIVE_HIGH>
-            , <&shifter 3 GPIO_ACTIVE_HIGH>
-            , <&shifter 4 GPIO_ACTIVE_HIGH>
-            , <&shifter 5 GPIO_ACTIVE_HIGH>
-            , <&shifter 6 GPIO_ACTIVE_HIGH>
+            = <&shifter 0 GPIO_ACTIVE_LOW>
+            , <&shifter 1 GPIO_ACTIVE_LOW>
+            , <&shifter 2 GPIO_ACTIVE_LOW>
+            , <&shifter 3 GPIO_ACTIVE_LOW>
+            , <&shifter 4 GPIO_ACTIVE_LOW>
+            , <&shifter 5 GPIO_ACTIVE_LOW>
+            , <&shifter 6 GPIO_ACTIVE_LOW>
             ;
     };
 };
